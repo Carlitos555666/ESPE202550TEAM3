@@ -3,7 +3,7 @@
 
 <div align="center">
   <strong>Object-Oriented Programming Team 3 Repository</strong>
-  <h2><strong>The Ultimate HealthKeeper</strong></h2>
+  <h2><strong>HealthKeeper</strong></h2>
  
 </div>
 
