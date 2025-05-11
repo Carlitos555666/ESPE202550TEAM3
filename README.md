@@ -7,7 +7,7 @@ ESPE2504-OOPSW23217 ESPE OOP course - DCCO for Software Engineering students of 
   <h2><strong>The Ultimate HealthKeeper</strong></h2>
  
 </div>
- !Java
+
 ***Members***: *Paca Angel, Paillacho Carlos, Palacios Daniel, Quiroz María*
 
 
