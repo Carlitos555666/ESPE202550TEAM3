@@ -1,9 +1,12 @@
 # ESPE202550TEAM3
-
-ESPE2504-OOPSW23217 ESPE OOP course - DCCO for Software Engineering students of the 2025-51 semester.
+ <!--ESPE2504-OOPSW23217 ESPE OOP course - DCCO for Software Engineering students of the 2025-51 semester.-->
 
 <div align="center">
   <strong>Object-Oriented Programming Team 3 Repository</strong>
+  <h2><strong>HealthKeeper</strong></h2>
+ 
 </div>
 
-***Members***: *Carlos Paillacho, Daniel Palacios, Maria Quiroz.*
+***Members***: *Paca Angel, Paillacho Carlos, Palacios Daniel, Quiroz María*
+
+
