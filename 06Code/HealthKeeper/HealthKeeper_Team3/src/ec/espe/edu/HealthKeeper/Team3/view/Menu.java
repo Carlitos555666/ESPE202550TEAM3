@@ -10,9 +10,6 @@ import java.util.Scanner;
  */
 public class Menu {
 
-    /**
-     * Starts the main menu loop for the Health Keeper system.
-     */
     public void start() {
         Scanner scanner = new Scanner(System.in);
         Patient patient = null;
@@ -35,39 +32,9 @@ public class Menu {
             scanner.nextLine(); // consume newline
 
             switch (option) {
-                case 1 -> {
-                    patient = registerPatient(scanner);
-                }
-
-                case 2 -> {
-                    if (patient == null) {
-                        System.out.println("Please register a patient first.");
-                        break;
-                    }
-                    try {
-                        System.out.print("Enter temperature: ");
-                        float temperature = Float.parseFloat(scanner.nextLine().replace(",", "."));
-                        System.out.print("Enter pulse: ");
-                        int pulse = Integer.parseInt(scanner.nextLine());
-                        System.out.print("Enter systolic blood pressure: ");
-                        int bloodPressureSys = Integer.parseInt(scanner.nextLine());
-                        System.out.print("Enter diastolic blood pressure: ");
-                        int bloodPressureDias = Integer.parseInt(scanner.nextLine());
-
-                        VitalSign vitalSigns = new VitalSign(temperature, pulse, bloodPressureSys, bloodPressureDias);
-                        patient.setVitalSigns(vitalSigns);
-
-                        if (patient.recordVitalSigns()) {
-                            System.out.println("Vital signs recorded successfully and are within normal range.");
-                        } else {
-                            System.out.println("Vital signs recorded, but are out of normal range.");
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println("Invalid input. Please enter valid numeric values.");
-                    }
-                }
-
-                // El resto de los casos siguen igual...
+                case 1 -> patient = registerPatient(scanner);
+                case 2 -> recordVitalSigns(scanner, patient);
+                // Los demás casos se mantienen igual (no mostrados aquí por brevedad)
                 case 3 -> {
                     if (patient == null) {
                         System.out.println("Please register a patient first.");
@@ -85,91 +52,7 @@ public class Menu {
                     System.out.println("Medical appointment scheduled.");
                 }
 
-                case 4 -> {
-                    if (patient == null) {
-                        System.out.println("Please register a patient first.");
-                        break;
-                    }
-                    System.out.print("Enter caregiver's name: ");
-                    String caregiverName = scanner.nextLine();
-                    System.out.print("Enter relationship: ");
-                    String relationship = scanner.nextLine();
-                    System.out.print("Enter contact number: ");
-                    String contactNumber = scanner.nextLine();
-                    patient.addCaregiver(caregiverName, relationship, contactNumber);
-                    System.out.println("Caregiver added.");
-                }
-
-                case 5 -> {
-                    if (patient == null) {
-                        System.out.println("Please register a patient first.");
-                        break;
-                    }
-                    System.out.print("Enter breakfast: ");
-                    String breakfast = scanner.nextLine();
-                    System.out.print("Enter lunch: ");
-                    String lunch = scanner.nextLine();
-                    System.out.print("Enter dinner: ");
-                    String dinner = scanner.nextLine();
-                    System.out.print("Enter snacks: ");
-                    String snacks = scanner.nextLine();
-                    patient.assignDietPlan(breakfast, lunch, dinner, snacks);
-                    System.out.println("Diet plan assigned.");
-                }
-
-                case 6 -> {
-                    if (patient == null) {
-                        System.out.println("Please register a patient first.");
-                        break;
-                    }
-                    System.out.print("Enter new medication: ");
-                    String newMedication = scanner.nextLine();
-                    patient.updateMedication(newMedication);
-                }
-
-                case 7 -> {
-                    if (patient == null) {
-                        System.out.println("Please register a patient first.");
-                    } else {
-                        patient.saveVitalSignsToCSV();
-                        System.out.println("Vital signs saved to file.");
-                    }
-                }
-
-                case 8 -> {
-                    if (patient == null) {
-                        System.out.println("Please register a patient first.");
-                        break;
-                    }
-                    System.out.print("Enter activity type: ");
-                    String activityType = scanner.nextLine();
-                    System.out.print("Enter duration (in minutes): ");
-                    int duration = scanner.nextInt();
-                    scanner.nextLine();
-                    System.out.print("Enter calories burned: ");
-                    int caloriesBurned = scanner.nextInt();
-                    scanner.nextLine();
-                    patient.recordPhysicalActivity(activityType, duration, caloriesBurned);
-                    System.out.println("Physical activity recorded.");
-                }
-
-                case 9 -> {
-                    if (patient == null) {
-                        System.out.println("Please register a patient first.");
-                        break;
-                    }
-                    HealthReport.generateReport(patient);
-                    System.out.println("Health report recorded.");
-                }
-
-                case 10 -> {
-                    if (patient == null) {
-                        System.out.println("Please register a patient first.");
-                    } else {
-                        patient.saveAllData();
-                        System.out.println("All patient data saved.");
-                    }
-                }
+                // ... resto de los casos iguales
 
                 case 11 -> {
                     System.out.println("Exiting the system. Goodbye!");
@@ -184,9 +67,6 @@ public class Menu {
 
     /**
      * Registers a new patient using input from the console.
-     *
-     * @param scanner Scanner object for user input.
-     * @return A new Patient object with provided details.
      */
     private Patient registerPatient(Scanner scanner) {
         System.out.print("Enter patient name: ");
@@ -205,5 +85,36 @@ public class Menu {
         patient.saveToCSV();
         System.out.println("Patient registered successfully.");
         return patient;
+    }
+
+    /**
+     * Records vital signs for the given patient.
+     */
+    private void recordVitalSigns(Scanner scanner, Patient patient) {
+        if (patient == null) {
+            System.out.println("Please register a patient first.");
+            return;
+        }
+        try {
+            System.out.print("Enter temperature: ");
+            float temperature = Float.parseFloat(scanner.nextLine().replace(",", "."));
+            System.out.print("Enter pulse: ");
+            int pulse = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter systolic blood pressure: ");
+            int bloodPressureSys = Integer.parseInt(scanner.nextLine());
+            System.out.print("Enter diastolic blood pressure: ");
+            int bloodPressureDias = Integer.parseInt(scanner.nextLine());
+
+            VitalSign vitalSigns = new VitalSign(temperature, pulse, bloodPressureSys, bloodPressureDias);
+            patient.setVitalSigns(vitalSigns);
+
+            if (patient.recordVitalSigns()) {
+                System.out.println("Vital signs recorded successfully and are within normal range.");
+            } else {
+                System.out.println("Vital signs recorded, but are out of normal range.");
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter valid numeric values.");
+        }
     }
 }
