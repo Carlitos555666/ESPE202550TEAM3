@@ -36,21 +36,7 @@ public class Menu {
 
             switch (option) {
                 case 1 -> {
-                    System.out.print("Enter patient name: ");
-                    String name = scanner.nextLine();
-                    System.out.print("Enter age: ");
-                    int age = scanner.nextInt();
-                    scanner.nextLine(); // consume newline
-                    System.out.print("Enter gender: ");
-                    String gender = scanner.nextLine();
-                    System.out.print("Enter previous medical conditions: ");
-                    String previousConditions = scanner.nextLine();
-                    System.out.print("Enter current medication: ");
-                    String medication = scanner.nextLine();
-
-                    patient = new Patient(name, age, gender, previousConditions, medication);
-                    patient.saveToCSV();
-                    System.out.println("Patient registered successfully.");
+                    patient = registerPatient(scanner);
                 }
 
                 case 2 -> {
@@ -81,6 +67,7 @@ public class Menu {
                     }
                 }
 
+                // El resto de los casos siguen igual...
                 case 3 -> {
                     if (patient == null) {
                         System.out.println("Please register a patient first.");
@@ -194,6 +181,29 @@ public class Menu {
             }
         }
     }
+
+    /**
+     * Registers a new patient using input from the console.
+     *
+     * @param scanner Scanner object for user input.
+     * @return A new Patient object with provided details.
+     */
+    private Patient registerPatient(Scanner scanner) {
+        System.out.print("Enter patient name: ");
+        String name = scanner.nextLine();
+        System.out.print("Enter age: ");
+        int age = scanner.nextInt();
+        scanner.nextLine(); // consume newline
+        System.out.print("Enter gender: ");
+        String gender = scanner.nextLine();
+        System.out.print("Enter previous medical conditions: ");
+        String previousConditions = scanner.nextLine();
+        System.out.print("Enter current medication: ");
+        String medication = scanner.nextLine();
+
+        Patient patient = new Patient(name, age, gender, previousConditions, medication);
+        patient.saveToCSV();
+        System.out.println("Patient registered successfully.");
+        return patient;
+    }
 }
-
-
