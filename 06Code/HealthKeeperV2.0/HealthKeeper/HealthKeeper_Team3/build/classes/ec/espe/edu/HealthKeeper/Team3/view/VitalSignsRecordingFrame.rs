@@ -1,0 +1,8 @@
+VitalSignsRecordingFrame$VitalSignsFrame$1
+VitalSignsRecordingFrame$VitalSignsFrame$2
+VitalSignsRecordingFrame$1
+VitalSignsRecordingFrame$VitalSignsRecordingFrame$1
+VitalSignsRecordingFrame
+VitalSignsRecordingFrame$VitalSignsRecordingFrame$2
+VitalSignsRecordingFrame$VitalSignsFrame
+VitalSignsRecordingFrame$VitalSignsRecordingFrame

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="HealthKeeper_Team3" default="default" basedir=".">
+    <description>Builds, tests, and runs the project HealthKeeper_Team3.</description>
+    <import file="nbproject/build-impl.xml"/>
+
+    <target name="-post-init">
+        <path id="classpath.lib">
+            <fileset dir="${basedir}/lib">
+                <include name="**/*.jar"/>
+            </fileset>
+        </path>
+        <property name="javac.classpath" refid="classpath.lib"/>
+    </target>
+
+    </project>
