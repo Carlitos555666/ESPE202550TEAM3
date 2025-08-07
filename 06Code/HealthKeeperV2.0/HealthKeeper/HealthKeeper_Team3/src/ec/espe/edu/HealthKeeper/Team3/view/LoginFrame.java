@@ -44,8 +44,6 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel_Title.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
         jLabel_Title.setText("HEALTHKEEPER");
 
-        jLabel_LOGO.setIcon(new javax.swing.ImageIcon("C:\\Users\\DELL\\Pictures\\Screenshots\\LOGO.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -75,11 +73,11 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel_Password.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel_Password.setText("Password:");
 
-        jTxtField_User.setBackground(new java.awt.Color(255, 255, 255));
-        jTxtField_User.setForeground(new java.awt.Color(0, 0, 0));
-
-        jPasswordField_login.setBackground(new java.awt.Color(255, 255, 255));
-        jPasswordField_login.setForeground(new java.awt.Color(0, 0, 0));
+        jTxtField_User.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtField_UserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -112,7 +110,6 @@ public class LoginFrame extends javax.swing.JFrame {
 
         jButton_Login.setBackground(new java.awt.Color(0, 204, 0));
         jButton_Login.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton_Login.setForeground(new java.awt.Color(0, 0, 0));
         jButton_Login.setText("LOGIN");
         jButton_Login.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,6 +184,10 @@ public class LoginFrame extends javax.swing.JFrame {
         }
                                  
     }//GEN-LAST:event_jButton_LoginActionPerformed
+
+    private void jTxtField_UserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtField_UserActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtField_UserActionPerformed
 
     /**
      * @param args the command line arguments
