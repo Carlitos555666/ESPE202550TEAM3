@@ -9,6 +9,6 @@
 
 ***Members***: *Paillacho Carlos, Palacios Daniel, Quiroz María*
 
-![image alt](https://github.com/Carlitos555666/ESPE202550TEAM3/blob/e20e30ce57a4c80b5813d6e746f9484b0abec56f/07Other/Logo.jpg)
+![image alt](https://github.com/Carlitos555666/ESPE202550TEAM3/blob/main/07Other/Mockup1.png)
 
 
